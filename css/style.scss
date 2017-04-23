@@ -1,0 +1,881 @@
+@charset "utf-8";
+
+html {
+  font-size: 62.5%;
+}
+
+@mixin fontsize($size: 24, $base: 10) {
+  font-size: $size + px;
+  font-size: ($size / $base) * 1rem;
+}
+
+$ja_font : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+$baseColor: #f9f8f6; //背景色　殆ど白
+$subColor1: #e2ddd4; //薄いグレー
+$subColor2: #b0b0b0; //濃いグレー
+$keyColor1: #887f69; //ゴールド
+$keyColor2: #9d1a2d; //赤　カルーセルナビ？
+$fontColor: #000; //フォントカラー黒
+$navitext: #524c3e;
+
+
+body {
+  background-color: $baseColor ;
+  @include fontsize(12)
+}
+  
+
+img {
+  max-width: 100%;
+}
+
+//ここからロゴ表示
+
+.sp_logo {
+  margin: 30px auto 5px auto;
+  text-align: center;
+}
+
+.pc_logo {
+  display: none;
+  padding: 30px 0;
+}
+
+
+
+
+//ロゴ表示ここまで
+
+#global_navi {
+  padding: 0;
+  
+  .navi_buttons{
+    text-align: center;
+    margin-bottom: 0;
+    
+    li {
+      list-style: none;
+      display: inline-block;
+    }
+  }
+  
+  .navi_ul {
+    display: none;
+    margin-bottom: 0;
+    
+    li {
+      list-style: none;
+      margin-bottom: 0;
+      a {
+        color: $navitext;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 550px) {
+  #global_navi {
+    display: flex;
+    flex-direction: row-reverse;
+     padding: 33px 0;
+     
+    .navi_buttons {
+      float: right;
+      min-width: 55px;
+   
+      #sp_navi_btn {
+        display: none;
+      }
+    }
+    .navi_ul {
+      display: block;
+      text-align: right;
+      li {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .sp_logo {
+    display: none;
+  }
+  .pc_logo {
+    display: block;
+  }
+}
+
+
+
+//グローバルナビここまで
+
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: -3px;
+  text-align: left;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 25px;
+  height: 2px;
+  margin: 0 10px 0 0;
+  background: #aaa;
+}
+
+.owl-theme .owl-dots .owl-dot.active span,.owl-theme .owl-dots .owl-dot:hover span{
+  background: $keyColor2;  
+}
+
+//カルーセルCSSの上書きここまで
+
+h2.section_tittle {
+  text-align: center;
+  margin-bottom: 10px;
+  
+  @media(min-width: 550px){
+    height: 48px;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    img {
+      display: none;
+    }
+  }
+}
+
+@media(min-width: 550px) {
+  #new_item h2.section_tittle {
+    background-image: url(../images/top/title_newitems.png);
+  }
+  
+  #popular_items h2.section_tittle {
+    background-image: url(../images/top/title_popular.png);
+  }
+  #shopping_guide h2.section_tittle {
+    background-image: url(../images/top/title_guide.png);
+  }
+  
+  #recent_pro h2.section_tittle {
+    background-image: url(../images/list/recent_pro_pc.png);
+  }
+}
+
+//sectionタイトル
+
+.item_wrapper {
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+  .item_box {
+    margin-bottom: 2px;
+    padding: 10px;
+    background-color: #fff;
+    width: 49.8%;
+    box-sizing: border-box;
+    
+    .item_name {
+      @include fontsize(11);
+      margin: 0;
+      
+      @media(min-width: 550px) {
+        @include fontsize(12);
+      }
+    }
+    
+    .price {
+      @include fontsize(11);
+      margin-top: 12px;
+      margin-bottom: 0;
+      
+      @media(min-width: 550px) {
+        @include fontsize(12);
+      }
+    }
+
+    
+    @media (min-width: 550px) {
+      margin-bottom: 0.3%;
+      width: 33%;
+      box-sizing: border-box;
+    }  
+  }
+}
+
+//new item popular_itemsここまで
+
+
+
+#shopping_guide {
+  h3 {
+    margin-bottom: -10px;
+    color: $keyColor1;
+    font-weight: bold;
+    @include fontsize(16)
+    
+  }
+  .otodoke_banner {
+    margin-top: 25px;
+  }
+  
+  .guide_wrapper {
+
+    .guide_box{
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 6px;
+    
+      dl {
+        margin-bottom: 0;
+        dt {
+          color: $keyColor1;
+          font-weight: bold;
+        }
+        dd {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  
+  @media(min-width: 550px){
+
+    .guide_wrapper {
+      display: flex;
+      justify-content: space-between;
+      
+      .guide_box {
+        width: 49.6%;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+#shopping_guide .guide_wrapper dl dt:first-letter {
+  @include fontsize(19)
+}
+//↑これが上に入れ子出来ない。なぜだ？？//
+
+
+.item_search {
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 20px;
+  
+  
+    @media(min-width: 550px) {
+      margin-top: 0px;
+    }  
+  
+    img {
+      display: none;
+      
+      @media(min-width: 550px) {
+        display: block;
+        margin-bottom: 10px;
+      }
+    }
+}
+
+form {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 8px 0 0;
+  background-color: #eee;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="search"] {
+  margin: 0;
+  border: 0;
+  background-color: #eee;
+  height: 30px; /* 高さ30px */
+  width: 80%;
+  padding: 0; 
+  left: 0;
+  top: 0; 
+}
+input[type="image"] {
+  max-width: 100%;
+  margin: auto 0 auto 0;
+  background-color: #eee;
+  border: 0;
+  padding: 0;
+}
+
+
+
+h3.right_menu {
+  background-color: #887f69;
+  line-height: 0;
+  padding: 16px;
+  margin-top: 16px;
+  margin-bottom: 0;
+
+}
+
+
+.category_ul {
+  list-style: none;
+  margin: 0;
+  
+  li{
+    margin: 2px 0;
+    padding: 10px 16px;
+    background-color: #fff;
+
+  }
+}
+
+.arrow {
+  float: right;
+}
+
+.arrow_down {
+  float: right;
+  margin-top: 3px;
+}
+
+
+//ここからaboutとSHOP info
+
+.about-info {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}  
+  
+.about-info-img {
+  box-sizing: border-box;
+  width: 48%;
+
+  }
+  
+.infomation {
+  width: 48%;
+
+  
+  p {
+      margin-bottom: 0;
+  }
+  
+  .more_btn {
+  
+  }
+}
+
+
+@media(min-width: 550px) {
+  .about-info {
+    display: block;
+  }
+  .about-info-img {
+  box-sizing: border-box;
+  width: 100%;
+  }
+  .infomation {
+  width: 100%;
+  
+    .more_btn {
+      display: block;
+      margin: 10px auto 10px auto;
+      
+    } 
+  }
+}
+
+//ここからフッター
+
+footer {
+    text-align: center;  
+    
+  .pagetop {
+    margin-top: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $subColor2;
+    
+      @media(min-width: 550px) {
+        text-align: right;
+    }
+  }
+}
+
+.footer_navi_ul {
+  padding: 24px 0 16px 0;
+  list-style-type: disc;
+  margin-bottom: 0;
+//  display: inline-flex;
+//  flex-wrap: wrap;
+
+  
+//  li {
+//    float: left;
+//    margin-right: 10px;
+//    margin-left: 10px;
+    
+//    &:first-child {
+//      list-style-type: none;
+//    }
+    
+  a {
+    text-decoration: none;
+    color: #333;
+    @include fontsize(11);
+    
+      @media (min-width: 550px) {
+        @include fontsize(12);
+      }
+  } 
+//      &::first-child {
+//        color: #ff8080;
+//      }
+
+}
+
+.copy {
+  @include fontsize(10);
+  color: $subColor2;
+}
+
+
+//ここからパンくずリスト
+
+nav#breadcrumbs {
+  background-color: #e8e4da;
+  padding: 10px;
+  
+    ol {
+      margin: 0;
+    }
+}
+
+nav#breadcrumbs ol li {
+  display: inline;
+  list-style-type: none;
+  
+  a {
+    @include fontsize(11);
+    text-decoration: none;
+    color: #887f69;
+
+    img {
+      margin-right: 8px;
+    }
+    
+  }
+}
+nav#breadcrumbs ol li:before {
+  content: "/";
+  color: #abb4bf;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+nav#breadcrumbs ol li:first-child:before {
+  content:"";
+}
+
+#list_cover {
+  
+}
+//パンくずリストここまで
+//ここからカテゴリーページのカバー
+
+#list_cover {
+//  height: 170px;
+  margin-top: 10px;
+  text-align: center;
+//  background-image: url("../images/list/cate_image_sp.jpg");
+//  background-size: cover;
+
+  @media (min-width: 550px) {
+    background-image: url("../images/list/cate_image.jpg");
+    height: 170px;
+    
+    img {
+      display: none;
+    }
+  }
+}
+//カテゴリーページのカバーここまで
+
+#list_btns {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  
+  button {
+    margin: 0;
+    width: 141px;
+    height: 40px;
+    background-color: $keyColor1;
+    color: #fff;
+    @include fontsize(14);
+    font-weight: bold;
+    border-radius: 0;
+  }
+}
+
+//NEXT-BACKボタンここまで
+
+hr {
+  border-top: 1px solid #e3e8cf; 
+  margin: 0;
+}
+
+#product {
+  margin: 0;
+  background-color: #fff;
+}
+
+#product_wrapper {
+  
+  
+  @media (min-width: 550px) {
+    max-width: 580px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .product_head {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    
+    @media (min-width: 550px) {
+      padding-top: 36px;
+      padding-bottom: 36px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+    
+  h2.product_name {
+    @include fontsize(14);
+    font-weight: bold;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+  }
+
+  .product_number {
+    @include fontsize(10); 
+    color: #a6a6a6;
+    margin: 0;
+   
+  }  
+  
+  #display_area {
+    @media (min-width: 550px){
+    display: flex;
+    }
+  }
+  
+  #display_img {
+    @media (min-width: 550px){
+      width: 70.68%;
+    }
+  }
+  
+  #display_img img {
+    width: 100%;
+
+  }
+  
+  
+  #list_img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0;
+    
+    @media (min-width: 550px){
+      max-width: 29.32%;
+      align-content: space-between;
+      
+    }
+   
+    li {
+      list-style: none;
+      box-sizing: border-box;
+      width: 18.5%;
+      margin: 0;
+      
+      @media (min-width: 550px){
+        width: 50%;
+        padding-left: 10px;
+        box-sizing: border-box;
+      }
+    }
+    li img {
+      cursor: pointer;
+    }
+  } 
+}
+
+#color_size {
+  .spec_tittle {
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+//skeletonのCSSを無効に
+
+th:first-child, td:first-child {
+  padding-left: initial;
+}
+
+th:last-child, td:last-child {
+  padding-right: initial;
+}
+
+th, td {
+  padding: initial;
+}
+
+//skeletonのCSSを無効にここまで
+
+.color_size_table {
+  margin: 0 0 16px 0;
+  width: 100%;
+  border-collapse: collapse;
+  
+  
+  th {
+    background-color: #f9f9f5;
+    text-align: center;
+    border: 1px solid #e8e4da;
+    color: #887f69;
+    font-weight: normal;
+    width: 33%;
+    padding: 12px;
+  }
+  
+  td {
+    text-align: center;
+    border: 1px solid #e8e4da;
+    color: #887f69;
+    @include fontsize(12);
+    padding: 12px 14px 12px 14px;
+    
+    p.txt {
+      text-align: left;
+      margin-bottom: 0;
+    }
+  }
+}
+
+//Checkbox
+label.radio {
+	position      : relative;
+	cursor        : pointer;
+	display       : inline-block;
+	overflow      : hidden;
+	box-sizing    : border-box;
+  margin-bottom: 0;
+}
+
+label.radio {
+  vertical-align: bottom;
+	width      : 20px;
+	height     : 20px;
+	border     : 1px solid #e8e4da;
+	background : #fff;
+}
+
+/** before after **/
+label.radio:after {
+	content  : '';
+	position : absolute;
+	box-sizing : border-box;
+}
+
+label.radio:after{
+	top              : 0px;
+	bottom           : 0px;
+	left             : 0px;
+	right            : 0px;
+	margin           : auto;
+}
+label.radio:after {
+
+
+	transform         : rotate(45deg);
+	-webkit-transform : rotate(45deg);
+	-moz-transform    : rotate(45deg);
+	border-right      : 3px solid #DD6655;
+	border-bottom     : 3px solid #DD6655;
+	top               : calc(50% - (((17px / 12 ) * 5) / 2));
+	display           : block;
+	margin-top        : calc(((17px / 12 ) * 5) * -1);
+	width             : calc(((17px / 12 ) * 5));
+	height            : 17px;
+	z-index           : 1;
+}
+
+
+/** input **/
+label.radio input[type="radio"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	position   : absolute;
+	z-index    : 2;
+	margin     : 0px;
+	width      : 20px;
+	height     : 20px;
+	box-sizing    : border-box;
+	outline       : none;
+}
+
+label.radio input[type="radio"] {
+	left       : calc(20px * -1);
+	padding    : 0;
+}
+
+label.radio input[type="radio"] {
+	box-shadow : 20px 0px #FFF;
+}
+
+/** checked forcus */
+label.radio input[type="radio"]:checked {
+	box-shadow : none;
+}
+
+label.radio input[type="radio"]:checked:focus{
+	opacity: 0.1;
+}
+
+label.radio input[type="radio"]:checked:focus {
+	box-shadow : 20px 0px #666;
+}
+label.radio input[type="radio"]:focus {
+	box-shadow : 20px 0px #EEE;
+}
+
+//チェックボックス終わり
+
+#price_add{
+  @media (min-width: 550px){
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+#price_quantity {
+  @media (min-width: 550px){
+    width: 56%;
+  }
+  
+  #price_unit {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    .price_img {
+      display: block;
+      width: 43px;  
+      height: 12px;
+      margin-right: auto;
+    }
+    p#price{
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      color: #e80f66;
+      font-style: italic;
+      @include fontsize(22);
+      
+      &:first-letter{
+        @include fontsize(14);
+      }
+      
+      .tax {
+        @include fontsize(14);
+        color: #000;
+        margin-left: 4px;
+      }
+      
+    }
+  }
+
+  #quantity_unit {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    display: flex;
+    align-items: center;
+    
+    .quantity_img {
+      display: block;
+      width: 65px;  
+      height: 15px;
+      margin-right: auto;
+    }
+    p{
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      
+      input {
+        height: 36px;
+        margin: 0;
+        border: solid 1px #e8e4da;
+      }
+    }
+  }
+}
+
+#add_btn {
+  text-align: center;  
+  padding-top: 8px;
+  padding-bottom: 2px;
+  
+  @media (min-width: 550px){
+   padding: 0; 
+   overflow: hidden;
+  }
+  
+  button {
+    border : 0;
+    max-width: 225px;
+    max-height: 55px;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+}
+
+#product_description {
+  margin-top: 24px;
+  
+  h3 {
+    @include fontsize(16);
+    color: $keyColor1;
+    font-weight: bold;
+    margin-bottom: 0;
+    border-bottom: solid 1px $keyColor1;
+    padding-bottom: 16px;
+  }
+  #description_tittle {
+    @include fontsize(16);
+    color: $keyColor1;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    .square {
+      display: inline-block;
+      background-color: $keyColor1;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
