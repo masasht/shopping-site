@@ -21,13 +21,28 @@ $navitext: #524c3e;
 
 body {
   background-color: $baseColor ;
-  @include fontsize(12)
-}
-  
+  @include fontsize(12);
+  }
 
 img {
   max-width: 100%;
 }
+
+a {
+  text-decoration: none;
+  color: #000;
+}  
+a:hover {
+    color: $subColor2;
+  }
+  
+a:hover img,button:hover {
+opacity:0.50;
+filter:alpha(opacity=50);
+-ms-filter: "alpha( opacity=50 )";
+-moz-opacity:0.50;
+}
+
 
 //ここからロゴ表示
 
@@ -182,7 +197,7 @@ h2.section_tittle {
     
     .item_name {
       @include fontsize(11);
-      margin: 0;
+       margin: 0;
       
       @media(min-width: 550px) {
         @include fontsize(12);
