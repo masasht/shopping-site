@@ -296,7 +296,8 @@ footer {
 
 nav#breadcrumbs {
   background-color: #e8e4da;
-  padding: 10px; }
+  padding: 10px;
+  margin-bottom: 16px; }
   nav#breadcrumbs ol {
     margin: 0; }
 
@@ -349,9 +350,20 @@ hr {
   border-top: 1px solid #e3e8cf;
   margin: 0; }
 
+hr.under_add {
+  display: none; }
+  @media (min-width: 550px) {
+    hr.under_add {
+      display: block; } }
+
 #product {
-  margin: 0;
-  background-color: #fff; }
+  margin: 0 -20px;
+  background-color: #fff;
+  padding: 0 20px 20px 20px; }
+  @media (min-width: 550px) {
+    #product {
+      margin: 0;
+      padding: 0; } }
 
 @media (min-width: 550px) {
   #product_wrapper {
@@ -359,28 +371,31 @@ hr {
     margin-right: auto;
     margin-left: auto; } }
 #product_wrapper .product_head {
-  padding-top: 18px;
-  padding-bottom: 18px; }
+  padding-top: 16px;
+  padding-bottom: 16px; }
   @media (min-width: 550px) {
     #product_wrapper .product_head {
-      padding-top: 36px;
-      padding-bottom: 36px;
+      padding-top: 28px;
+      padding-bottom: 28px;
       display: flex;
       justify-content: space-between; } }
 #product_wrapper h2.product_name {
   font-size: 14px;
   font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: 0;
   letter-spacing: 2px; }
 #product_wrapper .product_number {
   font-size: 10px;
   font-size: 1rem;
   color: #a6a6a6;
   margin: 0; }
-@media (min-width: 550px) {
-  #product_wrapper #display_area {
-    display: flex; } }
+#product_wrapper #display_area {
+  margin-top: 10px; }
+  @media (min-width: 550px) {
+    #product_wrapper #display_area {
+      margin-top: 20px;
+      display: flex; } }
 @media (min-width: 550px) {
   #product_wrapper #display_img {
     width: 70.68%; } }
@@ -408,9 +423,14 @@ hr {
   #product_wrapper #list_img li img {
     cursor: pointer; }
 
-#color_size .spec_tittle {
-  margin-top: 16px;
-  margin-bottom: 10px; }
+#color_size {
+  margin-bottom: 16px; }
+  @media (min-width: 550px) {
+    #color_size {
+      margin-bottom: 20px; } }
+  #color_size .spec_tittle {
+    margin-top: 16px;
+    margin-bottom: 10px; }
 
 th:first-child, td:first-child {
   padding-left: initial; }
@@ -422,7 +442,7 @@ th, td {
   padding: initial; }
 
 .color_size_table {
-  margin: 0 0 16px 0;
+  margin: 0;
   width: 100%;
   border-collapse: collapse; }
   .color_size_table th {
@@ -586,7 +606,11 @@ label.radio input[type="radio"]:focus {
     margin-bottom: 0; }
 
 #product_description {
-  margin-top: 24px; }
+  margin-top: 24px;
+  padding-bottom: 20px; }
+  @media (min-width: 550px) {
+    #product_description {
+      padding-bottom: 64px; } }
   #product_description h3 {
     font-size: 16px;
     font-size: 1.6rem;

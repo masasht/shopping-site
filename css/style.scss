@@ -469,6 +469,7 @@ footer {
 nav#breadcrumbs {
   background-color: #e8e4da;
   padding: 10px;
+  margin-bottom: 16px;
   
     ol {
       margin: 0;
@@ -549,13 +550,32 @@ hr {
   margin: 0;
 }
 
+hr.under_add {
+    display: none;
+    
+      @media (min-width: 550px) {
+        display: block;
+      }
+  }
+
+//skeletonコンテナの幅を100％に
+
+
+
 #product {
-  margin: 0;
+  margin: 0 -20px;
   background-color: #fff;
+  padding: 0 20px 20px 20px;
+  
+  @media (min-width: 550px) {
+    margin: 0;
+    padding: 0;
+  }
 }
 
+   
+
 #product_wrapper {
-  
   
   @media (min-width: 550px) {
     max-width: 580px;
@@ -564,12 +584,12 @@ hr {
   }
   
   .product_head {
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     
     @media (min-width: 550px) {
-      padding-top: 36px;
-      padding-bottom: 36px;
+      padding-top: 28px;
+      padding-bottom: 28px;
       display: flex;
       justify-content: space-between;
     }
@@ -578,7 +598,7 @@ hr {
   h2.product_name {
     @include fontsize(14);
     font-weight: bold;
-    margin-bottom: 4px;
+    margin-bottom: 0;
     letter-spacing: 2px;
   }
 
@@ -590,7 +610,10 @@ hr {
   }  
   
   #display_area {
+    margin-top: 10px;
+    
     @media (min-width: 550px){
+    margin-top: 20px;
     display: flex;
     }
   }
@@ -638,6 +661,12 @@ hr {
 }
 
 #color_size {
+  margin-bottom: 16px;
+  
+  @media (min-width: 550px){
+    margin-bottom: 20px;
+  }
+  
   .spec_tittle {
     margin-top: 16px;
     margin-bottom: 10px;
@@ -660,8 +689,10 @@ th, td {
 
 //skeletonのCSSを無効にここまで
 
+
+
 .color_size_table {
-  margin: 0 0 16px 0;
+  margin: 0;
   width: 100%;
   border-collapse: collapse;
   
@@ -871,6 +902,12 @@ label.radio input[type="radio"]:focus {
 
 #product_description {
   margin-top: 24px;
+  padding-bottom: 20px;
+  
+  @media (min-width: 550px){
+    padding-bottom: 64px;
+    
+  }
   
   h3 {
     @include fontsize(16);
